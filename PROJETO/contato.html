@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Sem esta linha os acentos viram "observaÃ§Ã£o" -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Hanok</title>
+    <!-- Liga o CSS do site (mesmo arquivo do index.html) -->
+    <link rel="stylesheet" href="style6.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Use aqui o MESMO cabeçalho do index.html (só mude o "ativo" para o link Contato) -->
+    <header class="cabecalho">
+        <a href="inicial.html" class="logo">
+            <img src="img/unnamed.webp" alt="Hanok">
+        </a>
+        <nav class="menu">
+            <ul>
+                <li><a href="inicial.html">Voltar ao início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contato">
+
+            <!-- Lado esquerdo: título e informações -->
+            <div class="contato-info">
+                <p class="etiqueta">Reservas · 예약</p>
+                <h1>Entre em contato</h1>
+                <p class="texto">
+                    Reserve sua mesa na grelha ou mande sua dúvida.
+                    A gente responde o quanto antes.
+                </p>
+
+                <ul class="contato-lista">
+                    <li>
+                        <strong>Endereço</strong>
+                        Praça Professor Antonio de Queiroz, 72 - Jardim Mercedes, Limeira - SP, 13480-251
+                    </li>
+                    <li>
+                        <strong>Horários</strong>
+                        12h–15h · 18h–23h
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Lado direito: formulário -->
+            <form class="form-contato">
+
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Seu nome" required>
+                </div>
+
+                <!-- Dois campos lado a lado -->
+                <div class="linha">
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" placeholder="(11) 90000-0000">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <div class="campo">
+                        <label for="data">Data</label>
+                        <input type="date" id="data" required>
+                    </div>
+                    <div class="campo">
+                        <label for="pessoas">Nº de pessoas</label>
+                        <input type="number" id="pessoas" min="1" placeholder="2" required>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="observacao">Observações</label>
+                    <textarea id="observacao" placeholder="Aniversário, alergia, cadeira para criança..."></textarea>
+                </div>
+
+                <button type="submit" class="botao botao-vermelho">Reservar mesa</button>
+            </form>
+
+        </section>
+    </main>
+
+    <!-- Se quiser, cole aqui o mesmo <footer> do index.html -->
+
+</body>
+</html>

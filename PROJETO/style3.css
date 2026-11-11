@@ -1,0 +1,611 @@
+:root {
+    --preto: #0F0F0F;
+    --carvao: #1C1C1C;
+    --vermelho: #C8102E;
+    --vermelho-vivo: #E63946;
+    --vinho: #7A0C1C;
+    --creme: #FAF6EF;
+    --branco: #FFFFFF;
+    --cinza-claro: #BDB5AD;
+    --cinza: #9A928A;
+    --borda: #2E2E2E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--preto);
+    color: var(--creme);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ===== CABEÇALHO (igual ao da inicial) ===== */
+
+.cabecalho {
+    position: sticky; /* o menu fica preso no topo ao rolar */
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 14px 60px;
+    background: var(--preto);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif; /* mesma fonte da inicial */
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--creme);
+}
+
+.logo img {
+    display: block;
+    width: auto;
+    height: 70px;
+}
+
+.logo-circulo {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--vermelho);
+    color: var(--branco);
+    font-size: 16px;
+    letter-spacing: 0;
+}
+
+.menu ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.menu a {
+    padding-bottom: 6px;
+    border-bottom: 2px solid transparent;
+    color: var(--creme);
+    font-weight: 600;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.menu a:hover {
+    color: var(--vermelho-vivo);
+}
+
+/* Linha vermelha embaixo do link da página atual */
+.menu a.ativo {
+    border-bottom-color: var(--vermelho);
+}
+
+/* ===== BOTÕES ===== */
+
+/* Botão "Reservar mesa" do cabeçalho (igual ao da inicial) */
+.botao {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.botao-vermelho {
+    background: var(--vermelho);
+    color: var(--branco);
+}
+
+/* Efeito de "encher" de vinho no hover */
+.botao-vermelho::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--vinho);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.botao-vermelho:hover::before {
+    transform: translateY(0);
+}
+
+.botao-header,
+.botao-principal,
+.botao-contorno {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 22px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.botao-header,
+.botao-principal {
+    background: var(--vermelho);
+    border: 2px solid var(--vermelho);
+    color: var(--branco);
+}
+
+.botao-header:hover,
+.botao-principal:hover {
+    background: var(--vinho);
+    border-color: var(--vinho);
+    transform: translateY(-2px);
+}
+
+.botao-contorno {
+    background: transparent;
+    border: 2px solid var(--creme);
+    color: var(--creme);
+}
+
+.botao-contorno:hover {
+    background: var(--creme);
+    color: var(--preto);
+    transform: translateY(-2px);
+}
+
+/* ===== HERO (foto com camada preta de 60%) ===== */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 580px;
+    padding: 90px 7% 110px;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("https://tse4.mm.bing.net/th/id/OIP.6fdG9r0AEZOGZ8COf6LzvQHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3") center / cover no-repeat;
+}
+
+.hero-texto {
+    max-width: 620px;
+}
+
+.hero-texto h1,
+.secao-titulo h2,
+.sobre-texto h2,
+.contato h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.hero-texto h1 {
+    font-size: clamp(42px, 5vw, 66px);
+    margin: 22px 0;
+    color: var(--creme);
+}
+
+.hero-texto h1 span,
+.secao-titulo h2 span,
+.sobre-texto h2 span {
+    color: var(--vermelho-vivo);
+}
+
+.etiqueta {
+    display: inline-block;
+    color: var(--vermelho-vivo);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-texto > p,
+.sobre-texto > p {
+    max-width: 470px;
+    color: var(--cinza-claro);
+    font-size: 15px;
+    margin-bottom: 28px;
+}
+
+.hero-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.selo {
+    position: absolute;
+    right: 7%;
+    bottom: 40px;
+    background: var(--carvao);
+    padding: 18px 24px;
+    border-radius: 6px;
+    border-left: 3px solid var(--vermelho);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.selo span {
+    display: block;
+    color: var(--vermelho-vivo);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.selo small {
+    color: var(--cinza-claro);
+}
+
+.detalhes {
+    display: flex;
+    gap: 42px;
+    margin-top: 42px;
+}
+
+.detalhes div {
+    display: flex;
+    flex-direction: column;
+}
+
+.detalhes small {
+    color: var(--cinza-claro);
+    font-size: 12px;
+}
+
+/* ===== CARDÁPIO ===== */
+
+.cardapio {
+    padding: 90px 7%;
+    background: var(--preto);
+}
+
+.secao-titulo {
+    text-align: center;
+}
+
+.secao-titulo h2,
+.sobre-texto h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    margin: 14px 0;
+    color: var(--creme);
+}
+
+.secao-titulo > p {
+    color: var(--cinza-claro);
+    font-size: 14px;
+}
+
+.categorias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 35px 0 40px;
+}
+
+.categoria {
+    padding: 10px 20px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--cinza-claro);
+    transition: 0.2s;
+}
+
+.categoria:hover,
+.categoria.ativa {
+    background: var(--vermelho);
+    border-color: var(--vermelho);
+    color: var(--branco);
+}
+
+.pratos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.prato {
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: var(--carvao);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.prato:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.prato > img {
+    height: 230px;
+    transition: transform 0.4s;
+}
+
+.prato:hover > img {
+    transform: scale(1.03);
+}
+
+.prato-info {
+    padding: 22px;
+}
+
+.nome-preco {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.nome-preco h3 {
+    font-size: 17px;
+    color: var(--creme);
+}
+
+.nome-preco strong {
+    color: var(--vermelho-vivo);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.prato-info p {
+    min-height: 48px;
+    margin: 12px 0 18px;
+    color: var(--cinza);
+    font-size: 13px;
+}
+
+.tipo {
+    color: var(--vermelho-vivo);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+/* ===== SOBRE (estilo "O espírito do Hanok") ===== */
+
+.sobre {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+    padding: 100px 7%;
+    background: var(--carvao);
+}
+
+.sobre-imagem img {
+    height: 430px;
+    border-radius: 8px;
+}
+
+.sobre-texto h2 {
+    margin: 20px 0;
+}
+
+.link-sublinhado {
+    display: inline-block;
+    color: var(--creme);
+    font-size: 14px;
+    font-weight: 700;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--vermelho);
+    transition: color 0.2s;
+}
+
+.link-sublinhado:hover {
+    color: var(--vermelho-vivo);
+}
+
+/* ===== CONTATO (bloco vermelho de impacto) ===== */
+
+.contato {
+    text-align: center;
+    padding: 90px 20px;
+    background: var(--vermelho);
+}
+
+.contato .etiqueta {
+    color: var(--creme);
+}
+
+.contato h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin: 18px 0;
+    color: var(--branco);
+}
+
+.contato p {
+    color: var(--creme);
+    margin-bottom: 25px;
+}
+
+.contato .botao-principal {
+    background: var(--preto);
+    border-color: var(--preto);
+    color: var(--branco);
+}
+
+.contato .botao-principal:hover {
+    background: var(--carvao);
+    border-color: var(--carvao);
+}
+
+.contato > small {
+    display: block;
+    margin-top: 16px;
+    color: var(--creme);
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+/* ===== RODAPÉ ===== */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 35px 20px;
+    text-align: center;
+    background: var(--preto);
+    border-top: 2px solid var(--vermelho);
+}
+
+footer p {
+    color: var(--cinza-claro);
+    font-size: 12px;
+}
+
+footer small {
+    color: var(--cinza);
+    font-size: 12px;
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 900px) {
+    .cabecalho {
+        flex-wrap: wrap;
+        padding: 12px 20px;
+    }
+
+    .menu {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .menu ul {
+        gap: 20px;
+        white-space: nowrap;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 70px 5% 100px;
+    }
+
+    .cardapio,
+    .sobre {
+        padding: 70px 5%;
+    }
+
+    .pratos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sobre {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo-circulo {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .botao-header {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: auto;
+        padding: 60px 6% 65px;
+    }
+
+    .hero-texto h1 {
+        font-size: 40px;
+    }
+
+    .selo {
+        position: static;
+        margin-top: 36px;
+    }
+
+    .detalhes {
+        gap: 30px;
+        margin-top: 28px;
+    }
+
+    .cardapio {
+        padding: 65px 6%;
+    }
+
+    .categorias {
+        gap: 8px;
+    }
+
+    .categoria {
+        padding: 9px 13px;
+        font-size: 11px;
+    }
+
+    .pratos {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .prato > img {
+        height: 240px;
+    }
+
+    .sobre {
+        grid-template-columns: 1fr;
+        padding: 65px 6%;
+    }
+
+    .sobre-imagem img {
+        height: 300px;
+    }
+
+    .contato {
+        padding: 70px 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
